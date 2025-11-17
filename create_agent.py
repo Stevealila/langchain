@@ -19,7 +19,7 @@ agent = create_agent(
 
 res = agent.invoke({"messages":[{"role": "user", "content": "What is the time?"}]})
 
-print(len(res["messages"]))
+print(res)
 '''
 {
     'messages': [
