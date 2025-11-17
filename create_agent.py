@@ -1,18 +1,15 @@
 from datetime import datetime
 from langchain.agents import create_agent
-from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
 
 load_dotenv()
-
-model = ChatGoogleGenerativeAI(model='gemini-2.5-flash')
 
 def get_time(format: str = "%H:%M:%S") -> str:
     """Get current time in the given format"""
     return datetime.now().strftime(format)
 
 agent = create_agent(
-    model=model,
+    model="google_genai:gemini-2.5-flash",
     tools=[get_time], 
     system_prompt='You are a helpful assistant.'
 )
