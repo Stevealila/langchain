@@ -1,0 +1,3 @@
+scripts:
+  install:
+    - uv add -r requirements.txt
