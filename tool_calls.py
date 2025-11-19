@@ -13,6 +13,7 @@ model = init_chat_model("google_genai:gemini-2.5-flash-lite")
 tooled_model = model.bind_tools([get_time])
 
 res = tooled_model.invoke("What is the time now and 1 hour ago?")
+print(res.tool_calls)
 '''
 [
     # for question "What is the time?"
