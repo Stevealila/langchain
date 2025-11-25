@@ -8,6 +8,7 @@ dependencies = [
     "ipykernel>=7.1.0",
     "langchain>=1.0.7",
     "langchain-google-genai>=3.0.3",
+    "psycopg2-binary>=2.9.11",
     "python-dotenv>=1.2.1",
     "rav>=0.1.1",
 ]
