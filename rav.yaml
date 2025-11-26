@@ -1,3 +1,5 @@
 scripts:
   install:
     - uv add -r requirements.txt
+  db_agent:
+    - python3 very_useful_examples/db_agent/main.py

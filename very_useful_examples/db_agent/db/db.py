@@ -127,14 +127,19 @@ class User:
             cursor.close()
             conn.close()
     
-    def delete_record(self, record_id, table_name="users"):
+    def delete_record(self, user_email, table_name="users"):
         """DELETE: Delete a record"""
         conn = self.get_connection()
         cursor = conn.cursor()
         try:
-            cursor.execute(f"DELETE FROM {table_name} WHERE id = %s", (record_id,))
+            cursor.execute(f"DELETE FROM {table_name} WHERE email = %s", (user_email,))
+            affected = cursor.rowcount  # ← Get actual count
             conn.commit()
-            return f"Record {record_id} deleted successfully"
+            
+            if affected > 0:
+                return f"Successfully deleted {affected} record(s) with email '{user_email}'"
+            else:
+                return f"No record found with email '{user_email}'"
         except Exception as e:
             conn.rollback()
             return f"Error deleting record: {e}"
